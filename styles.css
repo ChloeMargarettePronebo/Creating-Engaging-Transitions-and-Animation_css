@@ -3,11 +3,14 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #000; /* black background */
+    color: #fff; /* white text */
 }
 
+/* Header */
 header {
-    background-color: #333;
-    color: white;
+    background-color: #000;
+    color: #fff;
     padding: 20px;
     text-align: center;
     opacity: 0;
@@ -16,84 +19,108 @@ header {
 
 header h1 {
     margin: 0;
+    font-size: 2rem;
 }
 
 header.visible {
     opacity: 1;
 }
 
+/* Product Intro */
 .product-intro {
     text-align: center;
-    padding: 50px 20px;
+    padding: 60px 20px;
 }
 
+.product-intro p {
+    font-size: 1.2rem;
+    margin: 20px 0;
+    color: #d6d3d1;
+}
+
+/* Zoom-in animation for product image */
 .product-image {
-    width: 300px;
-    animation: rotate 10s infinite linear;
+    width: 800px;
+    transform: scale(0.8);
+    opacity: 0;
+    animation: zoomIn 1s forwards;
 }
 
-@keyframes rotate {
+@keyframes zoomIn {
     from {
-        transform: rotate(0deg);
+        transform: scale(0.8);
+        opacity: 0;
     }
     to {
-        transform: rotate(360deg);
+        transform: scale(1);
+        opacity: 1;
     }
 }
 
+/* Buy Now button */
 .buy-now {
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px 30px;
+    background-color: #001aff;
+    color: #fff;
+    padding: 15px 40px;
     border: none;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .buy-now:hover {
-    background-color: #45a049;
     transform: scale(1.1);
+    background-color: #e65c00;
 }
 
+/* Features section */
 .features {
-    padding: 20px;
+    padding: 50px 20px;
 }
 
 .features h2 {
     text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
 }
 
 .features ul {
     list-style: none;
     padding: 0;
+    max-width: 600px;
+    margin: auto;
 }
 
 .feature-item {
-    background-color: #f4f4f4;
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #ddd;
+    background-color: #111;
+    margin: 15px 0;
+    padding: 15px 20px;
+    border-radius: 8px;
+    border: 1px solid #333;
     transform: translateX(-100%);
+    opacity: 0;
     animation: slideIn 0.5s forwards;
 }
+
+.feature-item:nth-child(1) { animation-delay: 0.3s; }
+.feature-item:nth-child(2) { animation-delay: 0.6s; }
+.feature-item:nth-child(3) { animation-delay: 0.9s; }
+.feature-item:nth-child(4) { animation-delay: 1.2s; }
 
 @keyframes slideIn {
     to {
         transform: translateX(0);
+        opacity: 1;
     }
 }
 
-.feature-item:nth-child(2) {
-    animation-delay: 0.5s;
-}
-
-.feature-item:nth-child(3) {
-    animation-delay: 1s;
-}
-
+/* Footer */
 footer {
-    background-color: #333;
-    color: white;
+    background-color: #000;
+    color: #fff;
     text-align: center;
-    padding: 10px 20px;
+    padding: 20px;
+    font-size: 0.9rem;
 }
